@@ -1,3 +1,3 @@
 model_key,model_name,model_path,accuracy,precision,recall,f1
-log_reg,Logistic Regression,/Users/lissaleblancmoriniere/ml-poc-project/models/log_reg.joblib,0.9952305246422893,1.0,0.9866666666666667,0.9932885906040269
-random_forest,Random Forest,/Users/lissaleblancmoriniere/ml-poc-project/models/random_forest.joblib,1.0,1.0,1.0,1.0
+log_reg,Logistic Regression,/Users/lissaleblancmoriniere/ml-poc-project/models/log_reg.joblib,0.9538950715421304,0.9579439252336449,0.9111111111111111,0.9339407744874715
+random_forest,Random Forest,/Users/lissaleblancmoriniere/ml-poc-project/models/random_forest.joblib,0.958664546899841,0.9806763285024155,0.9022222222222223,0.9398148148148148

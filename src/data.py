@@ -9,7 +9,7 @@ from config import DATA_DIR
 def load_dataset_split() -> tuple[Any, Any, Any, Any]:
     df = pd.read_csv(DATA_DIR / "processed" / "ibtracs_antilles_model.csv")
 
-    features = ["SEASON", "LAT", "LON", "WMO_WIND", "WMO_PRES"]
+    features = ["SEASON", "LAT", "LON", "WMO_PRES", "NATURE"]
     target = "high_risk"
 
     X = df[features]
