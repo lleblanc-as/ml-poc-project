@@ -1,41 +1,34 @@
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).parent.parent
-SRC_DIR = PROJECT_ROOT / "src"
-DATA_DIR = PROJECT_ROOT / "data"
-LOGS_DIR = PROJECT_ROOT / "logs"
-MODELS_DIR = PROJECT_ROOT / "models"
-NOTEBOOKS_DIR = PROJECT_ROOT / "notebooks"
-PLOTS_DIR = PROJECT_ROOT / "plots"
-RESULTS_DIR = PROJECT_ROOT / "results"
-SCRIPTS_DIR = PROJECT_ROOT / "scripts"
-TESTS_DIR = PROJECT_ROOT / "tests"
+ROOT_DIR = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = ROOT_DIR
 
-for dir in [
-    DATA_DIR,
-    LOGS_DIR,
-    MODELS_DIR,
-    NOTEBOOKS_DIR,
-    PLOTS_DIR,
-    RESULTS_DIR,
-    SCRIPTS_DIR,
-    TESTS_DIR,
-]:
-    dir.mkdir(exist_ok=True)
-
-ENV_FILE = PROJECT_ROOT / ".env"
-APP_ENTRYPOINT = PROJECT_ROOT / "src" / "app.py"
-MODEL_METRICS_FILE = RESULTS_DIR / "model_metrics.csv"
-
+ENV_FILE = ROOT_DIR / ".env"
+SRC_DIR = ROOT_DIR / "src"
+LOGS_DIR = ROOT_DIR / "logs"
+SCRIPTS_DIR = ROOT_DIR / "scripts"
+APP_ENTRYPOINT = SRC_DIR / "app.py"
 STREAMLIT_HOST = "localhost"
 STREAMLIT_PORT = 8501
 
-# Students must replace this example with their trained models.
-# Each entry must point to a serialized model saved as `.joblib`, `.pkl`, or `.pickle`.
+DATA_DIR = ROOT_DIR / "data"
+MODELS_DIR = ROOT_DIR / "models"
+RESULTS_DIR = ROOT_DIR / "results"
+PLOTS_DIR = ROOT_DIR / "plots"
+
 MODELS = {
-    "model_a": {
-        "name": "Model A",
-        "description": "A simple baseline model.",
-        "path": MODELS_DIR / "model_a.pkl",
+    "log_reg": {
+        "name": "Logistic Regression",
+        "description": "Modèle de classification simple pour prédire le risque cyclonique élevé aux Antilles.",
+        "path": MODELS_DIR / "log_reg.joblib",
+    },
+    "random_forest": {
+        "name": "Random Forest",
+        "description": "Modèle d'ensemble basé sur des arbres de décision pour détecter les observations cycloniques à haut risque.",
+        "path": MODELS_DIR / "random_forest.joblib",
     },
 }
+
+STREAMLIT_APP_TITLE = "Prédiction du risque cyclonique aux Antilles"
+STREAMLIT_APP_DESCRIPTION = "Proof of Concept Machine Learning pour identifier les situations cycloniques à haut risque dans la zone Antilles."
+MODEL_METRICS_FILE = RESULTS_DIR / "model_metrics.csv"
